@@ -1,0 +1,542 @@
+info:
+  contact: {}
+paths:
+  /admin-login:
+    post:
+      parameters:
+      - description: username
+        in: formData
+        name: username
+        required: true
+        type: string
+      - description: password
+        in: formData
+        name: password
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 管理员登录
+      tags:
+      - 公共方法
+  /admin/create-product:
+    post:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: name
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: price
+        in: formData
+        name: price
+        required: true
+        type: number
+      - description: num
+        in: formData
+        name: num
+        required: true
+        type: integer
+      - description: unit
+        in: formData
+        name: unit
+        type: string
+      - description: pic
+        in: formData
+        name: pic
+        required: true
+        type: file
+      - description: desc
+        in: formData
+        name: desc
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 创建产品
+      tags:
+      - 管理员私有方法
+  /admin/create-product-seckill:
+    post:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: name
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: price
+        in: formData
+        name: price
+        required: true
+        type: number
+      - description: num
+        in: formData
+        name: num
+        required: true
+        type: integer
+      - description: pid
+        in: formData
+        name: pid
+        required: true
+        type: integer
+      - description: startTime
+        in: formData
+        name: startTime
+        required: true
+        type: string
+      - description: endTime
+        in: formData
+        name: endTime
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 创建秒杀
+      tags:
+      - 管理员私有方法
+  /admin/delete-product:
+    delete:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: name
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 删除产品
+      tags:
+      - 管理员私有方法
+  /admin/delete-product-seckill:
+    delete:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 删除秒杀
+      tags:
+      - 管理员私有方法
+  /admin/product-img-url:
+    get:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取产品图片链接
+      tags:
+      - 管理员私有方法
+  /admin/product-list:
+    get:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: size
+        in: query
+        name: size
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取产品列表
+      tags:
+      - 管理员私有方法
+  /admin/product-seckill-list:
+    get:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: size
+        in: query
+        name: size
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取秒杀列表
+      tags:
+      - 管理员私有方法
+  /admin/update-product:
+    put:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: id
+        in: formData
+        name: id
+        required: true
+        type: integer
+      - description: name
+        in: formData
+        name: name
+        type: string
+      - description: price
+        in: formData
+        name: price
+        type: number
+      - description: num
+        in: formData
+        name: num
+        type: integer
+      - description: unit
+        in: formData
+        name: unit
+        type: string
+      - description: pic
+        in: formData
+        name: pic
+        type: file
+      - description: desc
+        in: formData
+        name: desc
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 更新产品
+      tags:
+      - 管理员私有方法
+  /admin/update-product-seckill:
+    put:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: id
+        in: formData
+        name: id
+        required: true
+        type: integer
+      - description: name
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: price
+        in: formData
+        name: price
+        required: true
+        type: number
+      - description: num
+        in: formData
+        name: num
+        required: true
+        type: integer
+      - description: pid
+        in: formData
+        name: pid
+        required: true
+        type: integer
+      - description: startTime
+        in: formData
+        name: startTime
+        required: true
+        type: string
+      - description: endTime
+        in: formData
+        name: endTime
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 更新秒杀
+      tags:
+      - 管理员私有方法
+  /admin/user-list:
+    get:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: size
+        in: query
+        name: size
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取用户列表
+      tags:
+      - 管理员私有方法
+  /image-code:
+    get:
+      parameters:
+      - description: uuid
+        in: query
+        name: uuid
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取图片验证码
+      tags:
+      - 公共方法
+  /register:
+    post:
+      parameters:
+      - description: phone
+        in: formData
+        name: phone
+        required: true
+        type: string
+      - description: code
+        in: formData
+        name: code
+        required: true
+        type: string
+      - description: password
+        in: formData
+        name: password
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 用户注册
+      tags:
+      - 公共方法
+  /send-code:
+    post:
+      parameters:
+      - description: uuid
+        in: formData
+        name: uuid
+        required: true
+        type: string
+      - description: imgCode
+        in: formData
+        name: imgCode
+        required: true
+        type: string
+      - description: phone
+        in: formData
+        name: phone
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 发送验证码
+      tags:
+      - 公共方法
+  /upload-img:
+    post:
+      parameters:
+      - description: pic
+        in: formData
+        name: pic
+        required: true
+        type: file
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 上传图片
+      tags:
+      - 公共方法
+  /user-login:
+    post:
+      parameters:
+      - description: phone
+        in: formData
+        name: phone
+        required: true
+        type: string
+      - description: password
+        in: formData
+        name: password
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 用户登录
+      tags:
+      - 公共方法
+  /user/create-order:
+    post:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: orderNum
+        in: formData
+        name: orderNum
+        required: true
+        type: string
+      - description: uid
+        in: formData
+        name: uid
+        required: true
+        type: integer
+      - description: sid
+        in: formData
+        name: sid
+        required: true
+        type: integer
+      - description: payStatus
+        in: formData
+        name: payStatus
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 创建订单
+      tags:
+      - 用户私有方法
+  /user/delete-order:
+    delete:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 删除订单
+      tags:
+      - 用户私有方法
+  /user/update-order:
+    put:
+      parameters:
+      - description: authorization
+        in: header
+        name: authorization
+        required: true
+        type: string
+      - description: id
+        in: formData
+        name: id
+        required: true
+        type: string
+      - description: orderNum
+        in: formData
+        name: orderNum
+        type: string
+      - description: uid
+        in: formData
+        name: uid
+        type: integer
+      - description: sid
+        in: formData
+        name: sid
+        type: integer
+      - description: payStatus
+        in: formData
+        name: payStatus
+        type: integer
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 更新订单
+      tags:
+      - 用户私有方法
+swagger: "2.0"
